@@ -3109,15 +3109,15 @@
 			"integrity": "sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg=="
 		},
 		"autoprefixer": {
-			"version": "9.4.4",
-			"resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.4.4.tgz",
-			"integrity": "sha512-7tpjBadJyHKf+gOJEmKhZIksWxdZCSrnKbbTJNsw+/zX9+f//DLELRQPWjjjVoDbbWlCuNRkN7RfmZwDVgWMLw==",
+			"version": "9.4.7",
+			"resolved": "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.4.7.tgz",
+			"integrity": "sha512-qS5wW6aXHkm53Y4z73tFGsUhmZu4aMPV9iHXYlF0c/wxjknXNHuj/1cIQb+6YH692DbJGGWcckAXX+VxKvahMA==",
 			"requires": {
-				"browserslist": "^4.3.7",
-				"caniuse-lite": "^1.0.30000926",
+				"browserslist": "^4.4.1",
+				"caniuse-lite": "^1.0.30000932",
 				"normalize-range": "^0.1.2",
 				"num2fraction": "^1.2.2",
-				"postcss": "^7.0.7",
+				"postcss": "^7.0.14",
 				"postcss-value-parser": "^3.3.1"
 			}
 		},
@@ -15570,7 +15570,6 @@
 							"version": "1.1.11",
 							"bundled": true,
 							"dev": true,
-							"optional": true,
 							"requires": {
 								"balanced-match": "^1.0.0",
 								"concat-map": "0.0.1"
@@ -15739,7 +15738,6 @@
 							"version": "3.0.4",
 							"bundled": true,
 							"dev": true,
-							"optional": true,
 							"requires": {
 								"brace-expansion": "^1.1.7"
 							}
