@@ -124,6 +124,32 @@ const detectEmbed = iframe => {
 	};
 };
 
+/** Returns true if video should be considered
+ * @param {Node} video - DOM node for a video
+ * @returns {boolean} true/false depending on if it should be included as potential featured content
+ */
+function isCandidateForContentVideo( video ) {
+	if ( ! video || ! video.getAttribute( 'src' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/** Detects and returns metadata if it should be considered as a video
+ * @param {Node} video - a DOM node for a video
+ * @returns {metadata} metadata - metadata regarding the video or null
+ */
+const detectVideo = video => {
+	if ( isCandidateForContentVideo( video ) ) {
+		return {
+			src: video.src,
+			mediaType: 'video',
+		};
+	}
+	return false;
+};
+
 /** Adds an ordered list of all of the content_media to the post
  * @param {post} post - the post object to add content_media to
  * @param {dom} dom - the dom of the post to scan for media
@@ -131,8 +157,11 @@ const detectEmbed = iframe => {
  */
 export default function detectMedia( post, dom ) {
 	const imageSelector = 'img[src]';
+	const videoSelector = 'video';
 	const embedSelector = 'iframe';
-	const media = dom.querySelectorAll( `${ imageSelector }, ${ embedSelector }` );
+	const media = dom.querySelectorAll(
+		`${ imageSelector }, ${ videoSelector }, ${ embedSelector }`
+	);
 
 	const contentMedia = map( media, element => {
 		const nodeName = element.nodeName.toLowerCase();
@@ -141,6 +170,8 @@ export default function detectMedia( post, dom ) {
 			return detectEmbed( element );
 		} else if ( nodeName === 'img' ) {
 			return detectImage( element );
+		} else if ( nodeName === 'video' ) {
+			return detectVideo( element );
 		}
 		return false;
 	} );

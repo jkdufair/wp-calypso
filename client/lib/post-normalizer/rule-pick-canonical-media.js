@@ -33,8 +33,9 @@ function isCandidateForFeature( media ) {
 	if ( media.mediaType === 'image' ) {
 		return isImageLargeEnoughForFeature( media );
 	} else if ( media.mediaType === 'video' ) {
+		return true;
 		// we need to know how to autoplay it which probably means we know how to get a thumbnail
-		return media.autoplayIframe;
+		//return media.autoplayIframe;
 	}
 
 	return false;
@@ -45,6 +46,8 @@ function isCandidateForFeature( media ) {
  *  1. prefer to return the post's featured image ( post.post_thumbnail )
  *  2. if there is no usable featured image, use the media that appears first in the content of the post
  *  3. if there is no eligible asset, return null
+ * @param {object} post - The post to examine for canonical media
+ * @returns {object} post - The post. Now potentially containing a canonical_media property
  */
 export default function pickCanonicalMedia( post ) {
 	if ( ! post ) {
